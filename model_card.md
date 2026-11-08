@@ -21,16 +21,7 @@ Prompts:
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+The recommender compares each song with the listener's preferred genre and mood, as well as target values for energy, tempo, valence, danceability, and acousticness. An exact mood match earns the most mood points, while a related mood earns partial credit; an exact genre match also earns points. For numeric features, songs earn more points when their values are closer to the listener's targets, so higher values are not automatically treated as better. The points are combined into a score out of 100, with mood and genre weighted more heavily than individual numeric features. The system scores every song, sorts them by score, and returns the top results with reasons showing where their points came from.
 
 ---
 

@@ -9,3 +9,38 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Concrete Crown,Bodega Kings,hip-hop,confident,0.78,94,0.62,0.85,0.08
+12,Slow Burn Letters,Velvet June,r&b,romantic,0.48,72,0.58,0.70,0.40
+13,Calle Caliente,Luna Fuego,reggaeton,energetic,0.86,96,0.80,0.92,0.12
+14,Bailando en Queens,Orquesta Marisol,salsa,playful,0.80,180,0.90,0.83,0.55
+15,Dos Corazones,Rafa Montero,bachata,romantic,0.60,128,0.66,0.78,0.48
+16,Dirt Road Diary,Cassie Pine,country,nostalgic,0.55,100,0.68,0.60,0.62
+17,Iron Furnace,Grimhold,metal,angry,0.97,168,0.22,0.45,0.03
+18,Moonlit Nocturne,Elena Varga,classical,peaceful,0.15,66,0.40,0.18,0.98
+19,Neon Pulse,Kairo Vex,house,euphoric,0.89,126,0.74,0.90,0.06
+20,Lagos Sunshine,Ade Bloom,afrobeats,uplifting,0.74,108,0.88,0.87,0.25
+21,Starlight Signal,NOVA9,k-pop,energetic,0.84,130,0.79,0.86,0.10
+22,Rainy Delta Blues,Old Creek Willie,blues,melancholic,0.38,70,0.30,0.45,0.80
+23,Paper Boats,The Hollow Pines,folk,sad,0.25,84,0.20,0.35,0.94
+24,Garage Riot,Snap Fuse,punk,angry,0.94,176,0.45,0.55,0.07
+25,Higher Ground Choir,Grace Avenue,gospel,uplifting,0.70,104,0.86,0.65,0.50
+26,Ipanema Afternoon,Tomás Alves,bossa nova,relaxed,0.32,118,0.72,0.64,0.88
+27,Island Breeze,Roots Harbor,reggae,peaceful,0.50,76,0.78,0.80,0.45
+28,Dreamscape Drift,Halo Fern,dream pop,dreamy,0.45,98,0.52,0.50,0.60
+29,Heartbreak Disco,Mira Sol,pop,sad,0.80,120,0.25,0.84,0.15
+30,Sunday Porch Swing,Lily Harrow,acoustic,happy,0.30,92,0.82,0.48,0.95
+31,Velvet Strobe,Nyx Arcade,disco,celebratory,0.82,122,0.89,0.91,0.16
+32,Sidewalk Static,Brass Comets,ska,rebellious,0.88,154,0.72,0.86,0.12
+33,Low Orbit,Amber Circuit,trip-hop,mysterious,0.43,82,0.35,0.52,0.48
+34,Bluegrass Cartography,June Holloway,bluegrass,whimsical,0.69,132,0.77,0.73,0.79
+35,Ember Steps,Solana Roja,flamenco,passionate,0.83,136,0.70,0.67,0.55
+36,Canopy Run,Orbit Riddim,jungle,adventurous,0.94,168,0.65,0.78,0.16
+37,Glass Horizon,Soft Antenna,shoegaze,overwhelmed,0.62,112,0.25,0.84,0.32
+38,Velvet Static,Kilo Voltage,dubstep,aggressive,0.96,140,0.38,0.72,0.04
+39,Market Lanterns,Mare de Lua,samba,carefree,0.76,112,0.86,0.88,0.62
+40,Pixel Orchard,Bit Meadow,chiptune,mischievous,0.75,140,0.77,0.84,0.10
+41,Secondhand Skyline,Chrome Orchard,new wave,uncertain,0.61,116,0.43,0.70,0.20
+42,Quiet Mic,Paper Halo,spoken word,reflective,0.28,76,0.31,0.22,0.38
+43,Far Meridian,Atlas Bloom,post-rock,determined,0.78,124,0.57,0.60,0.25
+44,Redline Reverie,Static Meridian,drum and bass,anxious,0.97,174,0.22,0.81,0.05
+45,Last Train to Vela,Orchid Compass,tango,yearning,0.65,128,0.44,0.76,0.58

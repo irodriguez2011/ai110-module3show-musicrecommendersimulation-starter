@@ -2,6 +2,31 @@ from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
 import csv
 
+# --- Experiment: weight shift -------------------------------------------
+# Original weights: genre 20, energy 20 (max score 100).
+# Experiment: halve genre (20 -> 10) and double energy (20 -> 40).
+# To undo, set GENRE_POINTS = 20 and ENERGY_WEIGHT = 20.
+MOOD_POINTS = 30
+MOOD_CLUSTER_POINTS = 15
+GENRE_POINTS = 10
+ENERGY_WEIGHT = 40
+VALENCE_WEIGHT = 10
+DANCEABILITY_WEIGHT = 8
+ACOUSTICNESS_WEIGHT = 7
+TEMPO_WEIGHT = 5
+
+# Highest possible raw score. With the experiment weights this is 110,
+# so scores are rescaled to stay on a 0-100 scale.
+MAX_RAW_SCORE = (
+    MOOD_POINTS
+    + GENRE_POINTS
+    + ENERGY_WEIGHT
+    + VALENCE_WEIGHT
+    + DANCEABILITY_WEIGHT
+    + ACOUSTICNESS_WEIGHT
+    + TEMPO_WEIGHT
+)
+
 
 @dataclass
 class Song:
@@ -106,8 +131,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     song_mood = str(song["mood"]).strip().casefold()
 
     if song_mood == favorite_mood:
-        score += 30
-        reasons.append(f"mood match: {song['mood']} (+30 points)")
+        score += MOOD_POINTS
+        reasons.append(f"mood match: {song['mood']} (+{MOOD_POINTS} points)")
     else:
         favorite_cluster = next(
             (name for name, moods in mood_clusters.items() if favorite_mood in moods),
@@ -118,21 +143,23 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
             None,
         )
         if favorite_cluster is not None and favorite_cluster == song_cluster:
-            score += 15
-            reasons.append(f"mood cluster match: {favorite_cluster} (+15 points)")
+            score += MOOD_CLUSTER_POINTS
+            reasons.append(
+                f"mood cluster match: {favorite_cluster} (+{MOOD_CLUSTER_POINTS} points)"
+            )
 
     favorite_genre = str(user_prefs["favorite_genre"]).strip().casefold()
     song_genre = str(song["genre"]).strip().casefold()
     if song_genre == favorite_genre:
-        score += 20
-        reasons.append(f"genre match: {song['genre']} (+20 points)")
+        score += GENRE_POINTS
+        reasons.append(f"genre match: {song['genre']} (+{GENRE_POINTS} points)")
 
     numeric_features = (
-        ("energy", "target_energy", 20, 1),
-        ("valence", "target_valence", 10, 1),
-        ("danceability", "target_danceability", 8, 1),
-        ("acousticness", "target_acousticness", 7, 1),
-        ("tempo_bpm", "target_tempo", 5, 120),
+        ("energy", "target_energy", ENERGY_WEIGHT, 1),
+        ("valence", "target_valence", VALENCE_WEIGHT, 1),
+        ("danceability", "target_danceability", DANCEABILITY_WEIGHT, 1),
+        ("acousticness", "target_acousticness", ACOUSTICNESS_WEIGHT, 1),
+        ("tempo_bpm", "target_tempo", TEMPO_WEIGHT, 120),
     )
     for song_key, target_key, weight, scale in numeric_features:
         song_value = float(song[song_key])
@@ -143,7 +170,9 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
         feature_name = "tempo" if song_key == "tempo_bpm" else song_key
         reasons.append(f"{feature_name} closeness: {points:.2f}/{weight} points")
 
-    return score, reasons
+    # Rescale so the final score is always out of 100, whatever the weights.
+    final_score = score / MAX_RAW_SCORE * 100
+    return final_score, reasons
 
 
 def recommend_songs(

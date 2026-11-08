@@ -44,3 +44,11 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 43,Far Meridian,Atlas Bloom,post-rock,determined,0.78,124,0.57,0.60,0.25
 44,Redline Reverie,Static Meridian,drum and bass,anxious,0.97,174,0.22,0.81,0.05
 45,Last Train to Vela,Orchid Compass,tango,yearning,0.65,128,0.44,0.76,0.58
+46,God's Plan,Drake,hip-hop,confident,0.45,77,0.36,0.75,0.03
+47,Passionfruit,Drake,r&b,moody,0.46,112,0.36,0.81,0.26
+48,Obsesión,Aventura,bachata,romantic,0.70,124,0.78,0.74,0.35
+49,Propuesta Indecente,Romeo Santos,bachata,romantic,0.80,136,0.85,0.73,0.25
+50,Calm Down,Rema,afrobeats,romantic,0.80,107,0.80,0.80,0.38
+51,Loco,Beéle,afrobeats,romantic,0.68,100,0.70,0.85,0.30
+52,Se Preparó,Ozuna,reggaeton,confident,0.72,88,0.62,0.86,0.15
+53,Darte un Beso,Prince Royce,bachata,romantic,0.72,128,0.82,0.74,0.40

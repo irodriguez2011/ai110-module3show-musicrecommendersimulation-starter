@@ -196,7 +196,7 @@ The lowest-scoring songs are Iron Furnace (metal / angry, 24.8) and Redline Reve
 - Mood clusters are hand-made and reflect one person's judgment.
 - Labels (mood + genre) can still be worth up to 50 of the 100 points, so a song with matching labels but poor numeric fit can rank high.
 - The system does not learn from listening history or other users, so it cannot do collaborative filtering.
-- The profile allows only one favorite genre and one favorite mood. Real listeners often like several, for example `["lofi", "jazz", "ambient"]`.
+- The profile allows only one favorite genre and one favorite mood. Real listeners often like several. For example, a listener who enjoys hip-hop, r&b, afrobeats, reggaeton, and bachata has to pick just one (r&b). In testing, that profile ranked the reggaeton song *Calle Caliente* 13th, below chiptune and gospel songs, because the other four favorite genres earn no genre points. A list such as `"favorite_genres": ["hip-hop", "r&b", "afrobeats", "reggaeton", "bachata"]` would fix this.
 - There is no way to mark a feature as "I don't care," so every feature always counts toward the score.
 - Distance is treated the same on both sides of a target. With a target energy of 0.40, songs at 0.30 and 0.50 score the same, even though a study listener might prefer the quieter one.
 

@@ -1,0 +1,13 @@
+# VibeMatch "after-hours listening room" theme.
+# See app.py for the card styles.
+[theme]
+base = "dark"
+primaryColor = "#7C3AED"            # Violet: buttons, sliders
+backgroundColor = "#12101C"         # Night: page background
+secondaryBackgroundColor = "#1E1A2E" # Stage: sidebar and cards
+textColor = "#F4F1FA"
+
+[server]
+headless = true
+# 8502 so this app never collides with the Project 4 app on 8501.
+port = 8502

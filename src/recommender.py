@@ -28,6 +28,35 @@ MAX_RAW_SCORE = (
 )
 
 
+# Moods that feel alike. A song in the same cluster as the favorite mood
+# earns partial mood points.
+MOOD_CLUSTERS = {
+    "Calm": {"chill", "relaxed", "peaceful", "focused", "dreamy", "reflective"},
+    "Happy": {
+        "happy",
+        "uplifting",
+        "euphoric",
+        "celebratory",
+        "carefree",
+        "playful",
+        "whimsical",
+        "mischievous",
+    },
+    "Intense": {
+        "intense",
+        "angry",
+        "aggressive",
+        "anxious",
+        "rebellious",
+        "overwhelmed",
+    },
+    "Energetic": {"energetic", "confident", "determined", "adventurous"},
+    "Romantic": {"romantic", "passionate"},
+    "Longing": {"sad", "melancholic", "yearning", "nostalgic"},
+    "Moody": {"moody", "mysterious", "uncertain"},
+}
+
+
 @dataclass
 class Song:
     """
@@ -99,32 +128,6 @@ def load_songs(csv_path: str) -> List[Dict]:
 
 def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     """Score one song against the user's preferences and explain the points."""
-    mood_clusters = {
-        "Calm": {"chill", "relaxed", "peaceful", "focused", "dreamy", "reflective"},
-        "Happy": {
-            "happy",
-            "uplifting",
-            "euphoric",
-            "celebratory",
-            "carefree",
-            "playful",
-            "whimsical",
-            "mischievous",
-        },
-        "Intense": {
-            "intense",
-            "angry",
-            "aggressive",
-            "anxious",
-            "rebellious",
-            "overwhelmed",
-        },
-        "Energetic": {"energetic", "confident", "determined", "adventurous"},
-        "Romantic": {"romantic", "passionate"},
-        "Longing": {"sad", "melancholic", "yearning", "nostalgic"},
-        "Moody": {"moody", "mysterious", "uncertain"},
-    }
-
     score = 0.0
     reasons = []
     favorite_mood = str(user_prefs["favorite_mood"]).strip().casefold()
@@ -135,11 +138,11 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
         reasons.append(f"mood match: {song['mood']} (+{MOOD_POINTS} points)")
     else:
         favorite_cluster = next(
-            (name for name, moods in mood_clusters.items() if favorite_mood in moods),
+            (name for name, moods in MOOD_CLUSTERS.items() if favorite_mood in moods),
             None,
         )
         song_cluster = next(
-            (name for name, moods in mood_clusters.items() if song_mood in moods),
+            (name for name, moods in MOOD_CLUSTERS.items() if song_mood in moods),
             None,
         )
         if favorite_cluster is not None and favorite_cluster == song_cluster:

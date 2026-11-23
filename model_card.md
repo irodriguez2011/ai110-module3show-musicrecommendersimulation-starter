@@ -20,19 +20,16 @@ It does not predict a rating or a play. It ranks songs by how closely they match
 
 ## 3. Data Used
 
-- **Size:** 53 songs in `data/songs.csv`.
-- **Variety:** 41 genres and 33 moods.
+- **Size:** 60 songs in `data/songs.csv`.
+- **Variety:** 12 genres and 23 moods.
 - **Features per song:** title, artist, genre, mood, energy, tempo (BPM), valence, danceability, and acousticness.
-- **Where the songs came from:**
-  - Songs 1–10 came with the starter project.
-  - Songs 11–45 are made-up songs I added to cover more genres and moods.
-  - Songs 46–53 are real songs by artists I listen to. Their feature values are estimates, not official data.
+- **Where the songs came from:** every song is a real song from my own Apple Music library that I know well, so I can judge the results by ear. Genre names follow my library's labels (for example "r&b/soul" and "urbano latino"), plus bachata and afrobeats for songs my library files under broader labels. The feature values are my estimates, not official data.
+- **Earlier version:** the first catalog had 53 songs, and 45 of them were made up. I replaced them because nobody could judge made-up songs by ear (see the Reflection).
 
 **Limits of the data:**
 
-- Most genres have only 1 or 2 songs. The biggest is bachata, with 4.
-- Most songs are made up, so nobody can judge them by ear.
-- The real songs' numbers are guesses about how they sound.
+- The catalog is unbalanced: r&b/soul has 16 songs, urbano latino and pop have 10 each, and five genres have only 1.
+- The numbers are guesses about how each song sounds.
 - There is no listening history, like plays, skips, or likes.
 - There is no information about lyrics, language, or release year.
 
@@ -73,6 +70,8 @@ A song earns more points the **closer** it is to the user's target. Being higher
 
 ## 5. Observed Behavior / Biases
 
+These observations come from the earlier 53-song catalog. With the current all-real catalog, the same patterns show up: for a romantic r&b/soul profile, romantic bachata and afrobeats songs rank 6th–11th, while the confident urbano latino song *Se Preparó* drops to 35th of 60.
+
 **What works well**
 
 - When a song matches the genre, the mood, and the sound, it lands at the top. For a "chill lofi" listener, the top 3 are all calm lofi songs.
@@ -110,7 +109,7 @@ A song earns more points the **closer** it is to the user's target. Being higher
 
 ## 6. Evaluation Process
 
-I tested the system in four ways.
+I tested the system in four ways. These tests ran on the earlier 53-song catalog, so some songs named below are no longer in `data/songs.csv`.
 
 **1. A simple "chill lofi" profile**
 

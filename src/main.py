@@ -18,13 +18,13 @@ def main() -> None:
     print(f"Loaded songs: {len(songs)}")
 
     user_prefs = {
-        "favorite_genre": "lofi",
-        "favorite_mood": "chill",
-        "target_energy": 0.4,
-        "target_tempo": 78,
-        "target_valence": 0.58,
-        "target_danceability": 0.60,
-        "target_acousticness": 0.78,
+        "favorite_genre": "r&b/soul",
+        "favorite_mood": "romantic",
+        "target_energy": 0.55,
+        "target_tempo": 90,
+        "target_valence": 0.55,
+        "target_danceability": 0.70,
+        "target_acousticness": 0.25,
     }
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
